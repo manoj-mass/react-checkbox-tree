@@ -3,94 +3,130 @@ import CheckboxTree from 'react-checkbox-tree';
 
 const nodes = [
     {
-        value: '/app',
-        label: 'app',
-        children: [
+      "label": "Arise Australia 108",
+      "children": [
+        {
+          "label": "1 Bedroom Apartment",
+          "children": [
             {
-                value: '/app/Http',
-                label: 'Http',
-                children: [
-                    {
-                        value: '/app/Http/Controllers',
-                        label: 'Controllers',
-                        children: [{
-                            value: '/app/Http/Controllers/WelcomeController.js',
-                            label: 'WelcomeController.js',
-                        }],
-                    },
-                    {
-                        value: '/app/Http/routes.js',
-                        label: 'routes.js',
-                    },
-                ],
+              "label": "AU 4Nt+ NonRef Direct",
+              "value": "arise|551"
             },
             {
-                value: '/app/Providers',
-                label: 'Providers',
-                children: [{
-                    value: '/app/Providers/EventServiceProvider.js',
-                    label: 'EventServiceProvider.js',
-                }],
-            },
-        ],
+                "label": "AU NonRef Direct",
+                "value": "arise|589"
+              }
+          ],
+          "value": 140
+        },
+        {
+          "label": "1 Bedroom Skyline Apartment",
+          "children": [
+            {
+              "label": "AU 7Nt+ Flexi Direct",
+              "value": "arise|238"
+            }
+          ],
+          "value": 143
+        },
+        {
+          "label": "2 Bedroom 1 Bathroom Apartment",
+          "value": 146
+        },
+        {
+          "label": "2 Bedroom 1 Bathroom Skyline Apartment",
+          "value": 149
+        },
+        {
+          "label": "2 Bedroom 2 Bathroom Apartment",
+
+          "value": 152
+        },
+        {
+          "label": "2 Bedroom 2 Bathroom Skyline Apartment",
+
+          "value": 155
+        }
+      ],
+      "value": "f922f8df"
     },
     {
-        value: '/config',
-        label: 'config',
-        children: [
-            {
-                value: '/config/app.js',
-                label: 'app.js',
-            },
-            {
-                value: '/config/database.js',
-                label: 'database.js',
-            },
-        ],
+      "label": "Brisbane One",
+      "children": [
+        {
+          "label": "1 Bedroom Apartment",
+
+          "value": 1
+        },
+        {
+          "label": "Studio Apartment",
+
+          "value": 4
+        },
+        {
+          "label": "2 Bedroom 1 Bathroom Apartment",
+
+          "value": 5
+        },
+        {
+          "label": "3 Bedroom 2 Bathroom Apartment",
+
+          "value": 12
+        },
+        {
+          "label": "Compact Family Room",
+
+          "value": 285
+        }
+      ],
+      "value": "8bdc"
     },
     {
-        value: '/public',
-        label: 'public',
-        children: [
-            {
-                value: '/public/assets/',
-                label: 'assets',
-                children: [{
-                    value: '/public/assets/style.css',
-                    label: 'style.css',
-                }],
-            },
-            {
-                value: '/public/index.html',
-                label: 'index.html',
-            },
-        ],
+      "label": "Arise Harmony",
+      "children": [
+        {
+          "label": "1 Bedroom Apartment",
+
+          "value": 2
+        },
+        {
+          "label": "2 Bedroom 2 Bathroom Apartment",
+
+          "value": 19
+        },
+        {
+          "label": "3 Bedroom 2 Bathroom Apartment",
+
+          "value": 22
+        }
+      ],
+      "value": "8829"
     },
     {
-        value: '/.env',
-        label: '.env',
-    },
-    {
-        value: '/.gitignore',
-        label: '.gitignore',
-    },
-    {
-        value: '/README.md',
-        label: 'README.md',
-    },
-];
+      "label": "Arise Princess Regent",
+      "children": [
+        {
+          "label": "1 Bedroom Apartment",
+
+          "value": 107
+        },
+        {
+          "label": "2 Bedrooom Apartment",
+
+          "value": 110
+        }
+      ],
+      "value": "63a8"
+    }
+  ];
 
 class BasicExample extends React.Component {
     state = {
         checked: [
-            '/app/Http/Controllers/WelcomeController.js',
-            '/app/Http/routes.js',
-            '/public/assets/style.css',
-            '/public/index.html',
-            '/.gitignore',
+
         ],
         expanded: [
-            '/app',
+
         ],
     };
 
@@ -102,6 +138,7 @@ class BasicExample extends React.Component {
     }
 
     onCheck(checked) {
+        console.log(checked);
         this.setState({ checked });
     }
 

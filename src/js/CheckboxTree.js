@@ -151,6 +151,10 @@ class CheckboxTree extends React.Component {
         onExpand(model.serializeList('expanded'), { ...node, ...nodeInfo });
     }
 
+    onRate(nodeInfo){
+       // console.log("nodeInfo: ", nodeInfo)
+    }
+
     onNodeClick(nodeInfo) {
         const { onClick } = this.props;
         const { model } = this.state;
@@ -208,6 +212,7 @@ class CheckboxTree extends React.Component {
     }
 
     renderTreeNodes(nodes, parent = {}) {
+        // console.log('children.. ', nodes, parent);
         const {
             expandDisabled,
             expandOnClick,
@@ -223,10 +228,11 @@ class CheckboxTree extends React.Component {
         const { id, model } = this.state;
         const { icons: defaultIcons } = CheckboxTree.defaultProps;
 
-        const treeNodes = nodes.map((node) => {
+        const treeNodes = nodes.map((node, index) => {
             const key = node.value;
             const flatNode = model.getNode(node.value);
             const children = flatNode.isParent ? this.renderTreeNodes(node.children, node) : null;
+           // console.log(flatNode.treeDepth)
 
             // Determine the check state after all children check states have been determined
             // This is done during rendering as to avoid an additional loop during the
@@ -267,6 +273,8 @@ class CheckboxTree extends React.Component {
                     onCheck={this.onCheck}
                     onClick={onClick && this.onNodeClick}
                     onExpand={this.onExpand}
+                    onRate={this.onRate}
+                    treeDepth={flatNode.treeDepth}
                 >
                     {children}
                 </TreeNode>

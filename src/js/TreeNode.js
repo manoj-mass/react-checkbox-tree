@@ -27,7 +27,8 @@ class TreeNode extends React.Component {
         ]).isRequired,
         onCheck: PropTypes.func.isRequired,
         onExpand: PropTypes.func.isRequired,
-
+        onRate: PropTypes.func,
+        treeDepth: PropTypes.number.isRequired,
         children: PropTypes.node,
         className: PropTypes.string,
         expandOnClick: PropTypes.bool,
@@ -49,16 +50,28 @@ class TreeNode extends React.Component {
 
     constructor(props) {
         super(props);
-
+        this.state = {
+            rate: '',
+        }
         this.onCheck = this.onCheck.bind(this);
         this.onClick = this.onClick.bind(this);
         this.onExpand = this.onExpand.bind(this);
+        this.onRateChangeHandler = this.onRateChangeHandler.bind(this);
     }
 
     onCheck() {
         const { value, onCheck } = this.props;
 
-        onCheck({ value, checked: this.getCheckState({ toggle: true }) });
+        onCheck({ value, checked: this.getCheckState({ toggle: true }), rate: this.state.rate });
+    }
+
+    onRateChangeHandler(e) {
+        console.log(e)
+        this.setState({rate: e.target.value})
+        const { value, onRate } = this.props;
+
+        onRate({ value, checked: this.getCheckState({ toggle: true }), rate: this.state.rate });
+
     }
 
     onClick() {
@@ -74,7 +87,7 @@ class TreeNode extends React.Component {
             this.onExpand();
         }
 
-        onClick({ value, checked: this.getCheckState({ toggle: false }) });
+        onClick({ value, checked: this.getCheckState({ toggle: false }), rate: this.state.rate });
     }
 
     onExpand() {
@@ -246,12 +259,17 @@ class TreeNode extends React.Component {
         const { label, showCheckbox, showNodeIcon } = this.props;
         const labelChildren = [
             showNodeIcon ? (
-                <span key={0} className="rct-node-icon">
+                <span key={0} className="rct-node-icon" >
                     {this.renderNodeIcon()}
                 </span>
             ) : null,
             <span key={1} className="rct-title">
                 {label}
+                {this.props.treeDepth === 1 &&
+            (<span style={{ display: 'inline-flex', position: 'relative', left: '80px'}}>
+                <span style={{paddingRight: '5px'}}>Rate:</span>
+                <input type="text" onChange={e => this.onRateChangeHandler(e)} value={this.state.rate} name="name" style={{ display: 'block' }}/>
+                </span>)}
             </span>,
         ];
 
@@ -266,7 +284,7 @@ class TreeNode extends React.Component {
         if (!this.props.expanded) {
             return null;
         }
-
+        // console.log("children : ", this.props.children);
         return this.props.children;
     }
 
@@ -285,7 +303,7 @@ class TreeNode extends React.Component {
             'rct-node-collapsed': !isLeaf && !expanded,
             'rct-disabled': disabled,
         }, className);
-
+       // console.log(this.props);
         return (
             <li className={nodeClass}>
                 <span className="rct-text">

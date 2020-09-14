@@ -34,15 +34,18 @@ class NodeModel {
     }
 
     flattenNodes(nodes, parent = {}, depth = 0) {
+        // console.log(nodes, parent)
         if (!Array.isArray(nodes) || nodes.length === 0) {
             return;
         }
-
+        const hasParent = !(Object.keys(parent).length === 0 && parent.constructor === Object);
+        // console.log("hasParent: ", hasParent)
         const { disabled, noCascade } = this.props;
 
         // Flatten the `node` property for internal lookups
         nodes.forEach((node, index) => {
             const isParent = this.nodeHasChildren(node);
+            // console.log(node, depth)
 
             // Protect against duplicate node values
             if (this.flatNodes[node.value] !== undefined) {
@@ -63,6 +66,8 @@ class NodeModel {
                 disabled: this.getDisabledState(node, parent, disabled, noCascade),
                 treeDepth: depth,
                 index,
+                hasParent,
+
             };
             this.flattenNodes(node.children, node, depth + 1);
         });
