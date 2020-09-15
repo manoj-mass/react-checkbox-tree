@@ -157,6 +157,7 @@ class BasicExample extends React.Component {
                 nodes={nodes}
                 onCheck={this.onCheck}
                 onExpand={this.onExpand}
+                toggelInputs
             />
         );
     }

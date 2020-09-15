@@ -37,6 +37,7 @@ class CheckboxTree extends React.Component {
         showExpandAll: PropTypes.bool,
         showNodeIcon: PropTypes.bool,
         showNodeTitle: PropTypes.bool,
+        toggelInputs: PropTypes.bool,
         onCheck: PropTypes.func,
         onClick: PropTypes.func,
         onExpand: PropTypes.func,
@@ -81,6 +82,7 @@ class CheckboxTree extends React.Component {
         onCheck: () => {},
         onClick: null,
         onExpand: () => {},
+        toggelInputs: false,
     };
 
     constructor(props) {
@@ -224,6 +226,7 @@ class CheckboxTree extends React.Component {
             optimisticToggle,
             showNodeTitle,
             showNodeIcon,
+            toggelInputs,
         } = this.props;
         const { id, model } = this.state;
         const { icons: defaultIcons } = CheckboxTree.defaultProps;
@@ -232,7 +235,7 @@ class CheckboxTree extends React.Component {
             const key = node.value;
             const flatNode = model.getNode(node.value);
             const children = flatNode.isParent ? this.renderTreeNodes(node.children, node) : null;
-           // console.log(flatNode.treeDepth)
+            // console.log(toggelInputs)
 
             // Determine the check state after all children check states have been determined
             // This is done during rendering as to avoid an additional loop during the
@@ -275,6 +278,7 @@ class CheckboxTree extends React.Component {
                     onExpand={this.onExpand}
                     onRate={this.onRate}
                     treeDepth={flatNode.treeDepth}
+                    toggelInputs={toggelInputs}
                 >
                     {children}
                 </TreeNode>

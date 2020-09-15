@@ -34,6 +34,7 @@ class TreeNode extends React.Component {
         expandOnClick: PropTypes.bool,
         icon: PropTypes.node,
         showCheckbox: PropTypes.bool,
+        toggelInputs: PropTypes.bool,
         title: PropTypes.string,
         onClick: PropTypes.func,
     };
@@ -256,7 +257,7 @@ class TreeNode extends React.Component {
     }
 
     renderLabel() {
-        const { label, showCheckbox, showNodeIcon } = this.props;
+        const { label, showCheckbox, showNodeIcon, treeDepth, toggelInputs } = this.props;
         const labelChildren = [
             showNodeIcon ? (
                 <span key={0} className="rct-node-icon" >
@@ -265,7 +266,7 @@ class TreeNode extends React.Component {
             ) : null,
             <span key={1} className="rct-title">
                 {label}
-                {this.props.treeDepth === 1 &&
+                {treeDepth === 1 && toggelInputs &&
             (<span style={{ display: 'inline-flex', position: 'relative', left: '80px'}}>
                 <span style={{paddingRight: '5px'}}>Rate:</span>
                 <input type="text" onChange={e => this.onRateChangeHandler(e)} value={this.state.rate} name="name" style={{ display: 'block' }}/>
