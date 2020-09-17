@@ -109,6 +109,33 @@ class NodeModel {
         });
     }
 
+    deserializeInputValues(inputList) {
+        // console.log("setInputs", inputList);
+        inputList.forEach((listKey) => {
+            // console.log(this.flatNodes[listKey.hotel])
+            if (this.flatNodes[listKey.hotel] !== undefined) {
+                this.flatNodes[listKey.hotel].inputValue = listKey.rate;
+            }
+        });
+    }
+
+    serializeListInputValues(key) {
+        const list = [];
+        // console.log('key', key);
+
+        Object.keys(this.flatNodes).forEach((value) => {
+            //  console.log("flatNodes..", value)
+            //  console.log("val her..", this.flatNodes[value])
+            if (this.flatNodes[value].inputValue === key.value && !list.includes(key)) {
+                list.push(key);
+            }
+            if (this.flatNodes[value].inputValue) {
+                list.push({ hotel: value, rate: this.flatNodes[value].inputValue });
+            }
+        });
+        return list;
+    }
+
     serializeList(key) {
         const list = [];
 

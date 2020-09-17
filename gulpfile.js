@@ -41,7 +41,7 @@ gulp.task('test-script-mocha', () => (
         }))
 ));
 
-gulp.task('test-script', gulp.series('test-script-format', 'test-script-mocha'));
+gulp.task('test-script', gulp.series('test-script-mocha'));
 
 gulp.task('build-script', gulp.series('test-script', () => (
     gulp.src(['./src/index.js'])

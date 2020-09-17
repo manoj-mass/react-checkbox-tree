@@ -37,6 +37,8 @@ class TreeNode extends React.Component {
         toggelInputs: PropTypes.bool,
         title: PropTypes.string,
         onClick: PropTypes.func,
+        rateList: PropTypes.array,
+        inputValue: PropTypes.string
     };
 
     static defaultProps = {
@@ -46,13 +48,13 @@ class TreeNode extends React.Component {
         icon: null,
         showCheckbox: true,
         title: null,
-        onClick: () => {},
+        onClick: () => { },
     };
 
     constructor(props) {
         super(props);
         this.state = {
-            rate: '',
+            rate: props.inputValue,
         }
         this.onCheck = this.onCheck.bind(this);
         this.onClick = this.onClick.bind(this);
@@ -67,12 +69,10 @@ class TreeNode extends React.Component {
     }
 
     onRateChangeHandler(e) {
-        console.log(e)
-        this.setState({rate: e.target.value})
+        this.setState({ rate: e.target.value });
         const { value, onRate } = this.props;
 
-        onRate({ value, checked: this.getCheckState({ toggle: true }), rate: this.state.rate });
-
+        onRate({ hotel: value, rate: e.target.value });
     }
 
     onClick() {
@@ -229,7 +229,7 @@ class TreeNode extends React.Component {
                     id={inputId}
                     indeterminate={checked === 2}
                     onClick={this.onCheck}
-                    onChange={() => {}}
+                    onChange={() => { }}
                 />
                 <span className="rct-checkbox">
                     {this.renderCheckboxIcon()}
@@ -257,7 +257,8 @@ class TreeNode extends React.Component {
     }
 
     renderLabel() {
-        const { label, showCheckbox, showNodeIcon, treeDepth, toggelInputs } = this.props;
+        const { label, showCheckbox, showNodeIcon, treeDepth, toggelInputs, rateList } = this.props;
+        // console.log('hii', this.props);
         const labelChildren = [
             showNodeIcon ? (
                 <span key={0} className="rct-node-icon" >
@@ -266,11 +267,19 @@ class TreeNode extends React.Component {
             ) : null,
             <span key={1} className="rct-title">
                 {label}
-                {treeDepth === 1 && toggelInputs &&
-            (<span style={{ display: 'inline-flex', position: 'relative', left: '80px'}}>
-                <span style={{paddingRight: '5px'}}>Rate:</span>
-                <input type="text" onChange={e => this.onRateChangeHandler(e)} value={this.state.rate} name="name" style={{ display: 'block' }}/>
-                </span>)}
+                {
+                treeDepth === 1 && toggelInputs && (
+                    <span style={{ display: 'inline-flex', position: 'relative', left: '80px' }}>
+                        <label>
+                            Rate:
+                    <select key={'none'} value={this.state.rate} onChange={e => this.onRateChangeHandler(e)}>
+                                <option>{'Select rate.'}</option>
+                                {rateList.map(function (data) { return <option key={data.id} value={data.id}>{data.name}</option> })}
+                            </select>
+                        </label>
+                    </span>
+                    )
+                    }
             </span>,
         ];
 
@@ -304,7 +313,7 @@ class TreeNode extends React.Component {
             'rct-node-collapsed': !isLeaf && !expanded,
             'rct-disabled': disabled,
         }, className);
-       // console.log(this.props);
+        // console.log(this.props);
         return (
             <li className={nodeClass}>
                 <span className="rct-text">
