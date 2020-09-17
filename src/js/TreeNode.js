@@ -222,7 +222,7 @@ class TreeNode extends React.Component {
         const inputId = `${treeId}-${String(value).split(' ').join('_')}`;
 
         const render = [(
-            <label key={0} htmlFor={inputId} title={title}>
+            <label key={0} htmlFor={inputId} title={title} style={{ width: '100%' }}>
                 <NativeCheckbox
                     checked={checked === 1}
                     disabled={disabled}
@@ -271,7 +271,7 @@ class TreeNode extends React.Component {
                 treeDepth === 1 && toggelInputs && (
                     <span style={{ display: 'inline-flex', position: 'relative', left: '80px' }}>
                         <label>
-                            Rate:
+                            Add rate:
                     <select key={'none'} value={this.state.rate} onChange={e => this.onRateChangeHandler(e)}>
                                 <option>{'Select rate.'}</option>
                                 {rateList.map(function (data) { return <option key={data.id} value={data.id}>{data.name}</option> })}
@@ -316,7 +316,7 @@ class TreeNode extends React.Component {
         // console.log(this.props);
         return (
             <li className={nodeClass}>
-                <span className="rct-text">
+                <span className="rct-text" style={{ padding: '5px' }}>
                     {this.renderCollapseButton()}
                     {this.renderLabel()}
                 </span>
