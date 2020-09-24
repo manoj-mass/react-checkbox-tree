@@ -162,10 +162,6 @@
   opacity: 1;
 }
 
-.rct-checkbox {
-  min-width: 24px;
-}
-
 .rct-native-display .rct-checkbox {
   display: none;
 }
