@@ -3,16 +3,13 @@ $rct-label-hover: rgba($rct-icon-color, .1) !default;
 $rct-label-active: rgba($rct-icon-color, .15) !default;
 $rct-clickable-hover: rgba($rct-icon-color, .1) !default;
 $rct-clickable-focus: rgba($rct-icon-color, .2) !default;
-
-.basic-singl-select{
-  width: 400px;
+// sass-lint:disable-all
+.basic-singl-select {
+	width: 400px;
+	input[type=text] {
+		display: inline-block !important; // No result reported
+	}
 }
-
-.basic-singl-select input[type=text]
-{
-  display: inline-block !important;
-}
-
 .react-checkbox-tree {
   display: flex;
   flex-direction: row-reverse;
@@ -123,7 +120,6 @@ $rct-clickable-focus: rgba($rct-icon-color, .2) !default;
     margin-left: 2px;
   }
 }
-
 .rct-collapse,
 .rct-checkbox,
 .rct-node-icon {
@@ -155,13 +151,12 @@ $rct-clickable-focus: rgba($rct-icon-color, .2) !default;
     }
   }
 }
-
 .rct-checkbox {
+  min-width: 24px;
   .rct-native-display & {
     display: none;
   }
 }
-
 .rct-node-clickable {
   cursor: pointer;
 
@@ -272,7 +267,6 @@ $rct-clickable-focus: rgba($rct-icon-color, .2) !default;
     content: "\f146";
   }
 }
-
 // RTL support
 .rct-direction-rtl {
   direction: rtl;

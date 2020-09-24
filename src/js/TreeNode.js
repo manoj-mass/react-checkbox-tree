@@ -239,7 +239,7 @@ class TreeNode extends React.Component {
                     onClick={this.onCheck}
                     onChange={() => { }}
                 />
-                <span className="rct-checkbox" style={{minWidth: '24px'}}>
+                <span className="rct-checkbox">
                     {this.renderCheckboxIcon()}
                 </span>
                 {!clickable ? children : null}
@@ -286,13 +286,7 @@ class TreeNode extends React.Component {
                 {
                 treeDepth === 1 && toggelInputs && (
                     <span style={{ display: 'inline-flex', position: 'relative', left: '80px' }}>
-
-                    {/* <select key={'none'} value={this.state.rate} onChange={e => this.onRateChangeHandler(e)}>
-                                <option>{'Select rate.'}</option>
-                                {rateList.map(function (data) { return <option key={data.id} value={data.id}>{data.name}</option> })}
-                            </select> */}
-                                  <>
-
+                        <lable style={{padding: '4px'}}><b>Add rate:</b></lable>
                                   <Select
           className="basic-singl-select"
           classNamePrefix="select"
@@ -305,7 +299,6 @@ class TreeNode extends React.Component {
           onChange={data => this.onRateChangeHandler(data)}
           setValue={this.state.rate}
         />
-      </>
                     </span>
                     )
                     }

@@ -661,7 +661,7 @@ class BasicExample extends React.Component {
                 onCheck={this.onCheck}
                 onExpand={this.onExpand}
                 toggelInputs
-                rateList={rates}
+                rateList={ rates.map(data =>( {'value': data.id, 'label': data.name} ))}
                 inputSelected={rate}
                 onRate={this.onRateChange}
             >
