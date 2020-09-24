@@ -6,6 +6,8 @@ import Button from './Button';
 import NativeCheckbox from './NativeCheckbox';
 import iconsShape from './shapes/iconsShape';
 import languageShape from './shapes/languageShape';
+import Select from 'react-select';
+
 
 class TreeNode extends React.Component {
     static propTypes = {
@@ -55,6 +57,11 @@ class TreeNode extends React.Component {
         super(props);
         this.state = {
             rate: props.inputValue,
+            isClearable: false,
+            isDisabled: false,
+            isLoading: false,
+            isRtl: false,
+            isSearchable: true,
         }
         this.onCheck = this.onCheck.bind(this);
         this.onClick = this.onClick.bind(this);
@@ -69,10 +76,11 @@ class TreeNode extends React.Component {
     }
 
     onRateChangeHandler(e) {
-        this.setState({ rate: e.target.value });
+       // console.log('e', e);
+        this.setState({ rate: e.value });
         const { value, onRate } = this.props;
 
-        onRate({ hotel: value, rate: e.target.value });
+        onRate({ hotel: value, rate: e.value });
     }
 
     onClick() {
@@ -231,7 +239,7 @@ class TreeNode extends React.Component {
                     onClick={this.onCheck}
                     onChange={() => { }}
                 />
-                <span className="rct-checkbox">
+                <span className="rct-checkbox" style={{minWidth: '24px'}}>
                     {this.renderCheckboxIcon()}
                 </span>
                 {!clickable ? children : null}
@@ -257,7 +265,20 @@ class TreeNode extends React.Component {
     }
 
     renderLabel() {
+        const options = [
+            { value: 'chocolate', label: 'Chocolate' },
+            { value: 'strawberry', label: 'Strawberry' },
+            { value: 'vanilla', label: 'Vanilla' },
+          ];
+          const {
+            isClearable,
+            isSearchable,
+            isDisabled,
+            isLoading,
+            isRtl,
+          } = this.state;
         const { label, showCheckbox, showNodeIcon, treeDepth, toggelInputs, rateList } = this.props;
+
         // console.log('hii', this.props);
         const labelChildren = [
             showNodeIcon ? (
@@ -270,13 +291,26 @@ class TreeNode extends React.Component {
                 {
                 treeDepth === 1 && toggelInputs && (
                     <span style={{ display: 'inline-flex', position: 'relative', left: '80px' }}>
-                        <label>
-                            Add rate:
-                    <select key={'none'} value={this.state.rate} onChange={e => this.onRateChangeHandler(e)}>
+
+                    {/* <select key={'none'} value={this.state.rate} onChange={e => this.onRateChangeHandler(e)}>
                                 <option>{'Select rate.'}</option>
                                 {rateList.map(function (data) { return <option key={data.id} value={data.id}>{data.name}</option> })}
-                            </select>
-                        </label>
+                            </select> */}
+                                  <>
+
+                                  <Select
+          className="basic-singl-select"
+          classNamePrefix="select"
+          isDisabled={isDisabled}
+          isLoading={isLoading}
+          isClearable={isClearable}
+          isRtl={isRtl}
+          isSearchable={true}
+          options={options}
+          onChange={data => this.onRateChangeHandler(data)}
+          setValue={this.state.rate}
+        />
+      </>
                     </span>
                     )
                     }

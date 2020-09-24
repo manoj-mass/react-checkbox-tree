@@ -1,5 +1,6 @@
 import React from 'react';
 import CheckboxTree from 'react-checkbox-tree';
+import Select from 'react-select'
 
 const nodes = [
     {
@@ -640,10 +641,18 @@ class BasicExample extends React.Component {
     }
 
     render() {
+        const options = [
+            { value: 'chocolate', label: 'Chocolate' },
+            { value: 'strawberry', label: 'Strawberry' },
+            { value: 'vanilla', label: 'Vanilla' }
+          ]
+
         const { checked, expanded, rate } = this.state;
 
         return (
           <>
+            <Select options={options} />
+
             <CheckboxTree
                 checked={checked}
                 expanded={expanded}
