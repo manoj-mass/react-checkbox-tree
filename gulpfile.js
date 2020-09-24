@@ -60,7 +60,6 @@ gulp.task('build-script-web', gulp.series('build-script', () => (
 gulp.task('build-style', () => (
     gulp.src('./src/scss/**/*.scss')
         .pipe(scsslint())
-        .pipe(scsslint.failReporter())
         .pipe(sass({
             outputStyle: 'expanded',
         }).on('error', sass.logError))
