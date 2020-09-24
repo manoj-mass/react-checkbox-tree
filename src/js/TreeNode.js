@@ -265,11 +265,6 @@ class TreeNode extends React.Component {
     }
 
     renderLabel() {
-        const options = [
-            { value: 'chocolate', label: 'Chocolate' },
-            { value: 'strawberry', label: 'Strawberry' },
-            { value: 'vanilla', label: 'Vanilla' },
-          ];
           const {
             isClearable,
             isSearchable,
@@ -306,7 +301,7 @@ class TreeNode extends React.Component {
           isClearable={isClearable}
           isRtl={isRtl}
           isSearchable={true}
-          options={options}
+          options={rateList}
           onChange={data => this.onRateChangeHandler(data)}
           setValue={this.state.rate}
         />
