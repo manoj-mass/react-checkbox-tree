@@ -131,7 +131,7 @@ class TreeNode extends React.Component {
 
         if (isLeaf) {
             return (
-                <span className="rct-collapse">
+                <span className="rct-collapse" style={{ padding: '5px' }}>
                     <span className="rct-icon" />
                 </span>
             );
@@ -338,7 +338,7 @@ class TreeNode extends React.Component {
         // console.log(this.props);
         return (
             <li className={nodeClass}>
-                <span className="rct-text" style={{ padding: '5px' }}>
+                <span className="rct-text">
                     {this.renderCollapseButton()}
                     {this.renderLabel()}
                 </span>
