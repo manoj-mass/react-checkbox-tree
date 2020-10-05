@@ -1,12 +1,12 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
+import Select from 'react-select';
 
 import Button from './Button';
 import NativeCheckbox from './NativeCheckbox';
 import iconsShape from './shapes/iconsShape';
 import languageShape from './shapes/languageShape';
-import Select from 'react-select';
 
 
 class TreeNode extends React.Component {
@@ -76,9 +76,9 @@ class TreeNode extends React.Component {
     }
 
     onRateChangeHandler(e) {
-       // console.log('e', e);
         this.setState({ rate: e.value });
         const { value, onRate } = this.props;
+       // console.log('e', e, value);
 
         onRate({ hotel: value, rate: e.value });
     }
@@ -225,11 +225,20 @@ class TreeNode extends React.Component {
             treeId,
             value,
             onClick,
+            treeDepth, toggelInputs, rateList
+
         } = this.props;
+        const {
+            isClearable,
+            isSearchable,
+            isDisabled,
+            isLoading,
+            isRtl,
+          } = this.state;
         const clickable = onClick !== null;
         const inputId = `${treeId}-${String(value).split(' ').join('_')}`;
-
         const render = [(
+            <>
             <label key={0} htmlFor={inputId} title={title} style={{ width: '100%' }}>
                 <NativeCheckbox
                     checked={checked === 1}
@@ -244,6 +253,25 @@ class TreeNode extends React.Component {
                 </span>
                 {!clickable ? children : null}
             </label>
+            { treeDepth === 1 && toggelInputs && (
+                    <span style={{ display: 'inline-flex', position: 'relative', left: '80px' }}>
+                        <span style={{padding: '4px', width: '100px' }}><b>Add rate:</b></span>
+                                  <Select
+          className="basic-singl-select"
+          classNamePrefix="select"
+          isDisabled={isDisabled}
+          isLoading={isLoading}
+          isClearable={isClearable}
+          isRtl={isRtl}
+          isSearchable={true}
+          options={rateList}
+          onChange={data => this.onRateChangeHandler(data)}
+        value={ rateList?.find(data => data.value === this.state.rate)?.label && ({'value': this.state.rate, 'label': rateList?.find(data => data.value === this.state.rate)?.label})}
+          />
+                    </span>
+                    )
+                    }
+            </>
         )];
 
         if (clickable) {
@@ -283,25 +311,6 @@ class TreeNode extends React.Component {
             ) : null,
             <span key={1} className="rct-title">
                 {label}
-                {
-                treeDepth === 1 && toggelInputs && (
-                    <span style={{ display: 'inline-flex', position: 'relative', left: '80px' }}>
-                        <lable style={{padding: '4px'}}><b>Add rate:</b></lable>
-                                  <Select
-          className="basic-singl-select"
-          classNamePrefix="select"
-          isDisabled={isDisabled}
-          isLoading={isLoading}
-          isClearable={isClearable}
-          isRtl={isRtl}
-          isSearchable={true}
-          options={rateList}
-          onChange={data => this.onRateChangeHandler(data)}
-          setValue={this.state.rate}
-        />
-                    </span>
-                    )
-                    }
             </span>,
         ];
 

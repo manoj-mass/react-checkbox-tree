@@ -4,35 +4,48 @@ import Select from 'react-select'
 
 const nodes = [
     {
-      "label": "Arise Australia 108",
       "children": [
         {
-          "label": "1 Bedroom Apartment",
           "children": [
             {
-              "label": "AU 4Nt+ NonRef Direct",
-              "value": "arise|551"
-            },
-            {
-                "label": "AU NonRef Direct",
-                "value": "arise|589"
-              }
-          ],
-          "value": 140
-        },
-        {
-          "label": "1 Bedroom Skyline Apartment",
-          "children": [
-            {
-              "label": "AU 7Nt+ Flexi Direct",
-              "value": "arise|238"
+              "label": "Fully Flexible",
+              "value": "f922f8df.140.arise-861"
             }
           ],
-          "value": 143
+          "value": "f922f8df.140",
+          "label": "1 Bedroom Apartment"
         },
         {
-          "label": "2 Bedroom 1 Bathroom Apartment",
-          "value": 146
+          "children": [
+            {
+              "label": "Long Stay 7+ Flexible",
+              "value": "f922f8df.143.arise-863"
+            },
+            {
+              "label": "Fully Flexible",
+              "value": "f922f8df.143.arise-861"
+            },
+            {
+              "label": "Stay & Save 2+ Non Refundable",
+              "value": "f922f8df.143.arise-864"
+            },
+            {
+              "label": "Stay & Save 2+ Flexible",
+              "value": "f922f8df.143.arise-862"
+            }
+          ],
+          "value": "f922f8df.143",
+          "label": "1 Bedroom Skyline Apartment"
+        },
+        {
+          "children": [
+            {
+              "label": "Long Stay 7+ Flexible",
+              "value": "f922f8df.146.arise-863"
+            }
+          ],
+          "value": "f922f8df.146",
+          "label": "2 Bedroom 1 Bathroom Apartment"
         },
         {
           "label": "2 Bedroom 1 Bathroom Skyline Apartment",
@@ -40,84 +53,75 @@ const nodes = [
         },
         {
           "label": "2 Bedroom 2 Bathroom Apartment",
-
           "value": 152
         },
         {
           "label": "2 Bedroom 2 Bathroom Skyline Apartment",
-
           "value": 155
         }
       ],
-      "value": "f922f8df"
+      "value": "f922f8df",
+      "label": "Arise Australia 108"
     },
     {
-      "label": "Brisbane One",
-      "children": [
-        {
-          "label": "1 Bedroom Apartment",
-
-          "value": 1
-        },
-        {
-          "label": "Studio Apartment",
-
-          "value": 4
-        },
-        {
-          "label": "2 Bedroom 1 Bathroom Apartment",
-
-          "value": 5
-        },
-        {
-          "label": "3 Bedroom 2 Bathroom Apartment",
-
-          "value": 12
-        },
-        {
-          "label": "Compact Family Room",
-
-          "value": 285
-        }
-      ],
-      "value": "8bdc"
+      "value": "a3fe",
+      "label": "Brisbane One"
     },
     {
-      "label": "Arise Harmony",
       "children": [
         {
-          "label": "1 Bedroom Apartment",
-
-          "value": 2
+          "children": [
+            {
+              "label": "Fully Flexible",
+              "value": "245d.207.arise-861"
+            },
+            {
+              "label": "Long Stay 7+ Flexible",
+              "value": "245d.207.arise-863"
+            },
+            {
+              "label": "Stay & Save 2+ Flexible",
+              "value": "245d.207.arise-862"
+            },
+            {
+              "label": "Stay & Save 2+ Non Refundable",
+              "value": "245d.207.arise-864"
+            },
+            {
+              "label": "Stay Longer 3+ Non Refundable",
+              "value": "245d.207.arise-865"
+            }
+          ],
+          "value": "245d.207",
+          "label": "BS 1 Bedroom City"
         },
         {
-          "label": "2 Bedroom 2 Bathroom Apartment",
-
-          "value": 19
-        },
-        {
-          "label": "3 Bedroom 2 Bathroom Apartment",
-
-          "value": 22
+          "value": "245d.208",
+          "label": "BS 1 Bedroom Sky High"
         }
       ],
-      "value": "8829"
+      "value": "245d",
+      "label": "Brisbane Skytower"
     },
     {
-      "label": "Arise Princess Regent",
       "children": [
         {
-          "label": "1 Bedroom Apartment",
-
-          "value": 107
-        },
-        {
-          "label": "2 Bedrooom Apartment",
-
-          "value": 110
+          "children": [
+            {
+              "label": "Fully Flexible",
+              "value": "30eb.77.arise-861"
+            }
+          ],
+          "value": "30eb.77",
+          "label": "AR 1 Bedroom"
         }
       ],
-      "value": "63a8"
+      "value": "30eb",
+      "label": "Arena"
+    },
+    {
+      "value": "06db",
+      "label": "Hedge"
     }
   ];
   const rates =   [
@@ -604,13 +608,13 @@ const nodes = [
   ]
 
   const inputSelected = [
-      {hotel: 140, rate: 'arise|241'}, { hotel: 149, rate: 'arise|735'}
+      {hotel: 152, rate: 'arise|722'}, { hotel: 155, rate: 'arise|519'}
   ]
 
 class BasicExample extends React.Component {
     state = {
         checked: [
-
+            152
         ],
         expanded: [
 
@@ -661,7 +665,7 @@ class BasicExample extends React.Component {
                 onCheck={this.onCheck}
                 onExpand={this.onExpand}
                 toggelInputs
-                rateList={ rates.map(data =>( {'value': data.id, 'label': data.name} ))}
+                rateList={ rates.map(data =>( {'value': data.id, 'label': `${data.name} ${data.id}`} ))}
                 inputSelected={rate}
                 onRate={this.onRateChange}
             >
