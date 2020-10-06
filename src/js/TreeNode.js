@@ -255,7 +255,7 @@ class TreeNode extends React.Component {
             </label>
             { treeDepth === 1 && toggelInputs && (
                     <span style={{ display: 'inline-flex', position: 'relative', left: '80px' }}>
-                        <span style={{padding: '4px', width: '100px' }}><b>Add rate:</b></span>
+                        {/* <span style={{padding: '4px', width: '100px' }}><b>Add rate:</b></span> */}
                                   <Select
           className="basic-singl-select"
           classNamePrefix="select"
@@ -265,6 +265,7 @@ class TreeNode extends React.Component {
           isRtl={isRtl}
           isSearchable={true}
           options={rateList}
+          placeholder={'Add promotional rate'}
           onChange={data => this.onRateChangeHandler(data)}
         value={ rateList?.find(data => data.value === this.state.rate)?.label && ({'value': this.state.rate, 'label': rateList?.find(data => data.value === this.state.rate)?.label})}
           />

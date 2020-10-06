@@ -122,20 +122,18 @@ class NodeModel {
     serializeListInputValues(key) {
 
         const list = [];
-        // console.log('key', key);
-        // console.log("this.flatNodes: ", this.flatNodes)
         Object.keys(this.flatNodes).forEach((value) => {
-            //  console.log("flatNodes..", value)
-            // console.log("val her..", this.flatNodes[value])
-            if (this.flatNodes[value].inputValue === key.value && !list.includes(key)) {
-                list.push(key);
-            }
             if (this.flatNodes[value].inputValue) {
-                list.push({ hotel: value, rate: this.flatNodes[value].inputValue });
+                list.filter((el) => el.hotel === this.flatNodes[value].value).length > 0 &&
+                list.map(p => p.hotel === value
+                                      ? { ...p,  rate: key.rate }
+                                      : p
+                                  );
+                list.filter((el) => el.hotel === this.flatNodes[value].value).length === 0 && list.push({ hotel: value, rate: this.flatNodes[value].inputValue });
+            } else {
+               list.filter((el) => el.hotel === key.hotel).length === 0 && list.push(key);
             }
         });
-
-       // console.log('list : ', list);
         return list;
     }
 
