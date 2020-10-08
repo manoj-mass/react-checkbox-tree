@@ -254,7 +254,7 @@ class TreeNode extends React.Component {
                 {!clickable ? children : null}
             </label>
             { treeDepth === 1 && toggelInputs && (
-                    <span style={{ display: 'inline-flex', position: 'relative', left: '80px' }}>
+                    <span style={{ display: 'inline-flex', position: 'relative', right: 0 }}>
                         {/* <span style={{padding: '4px', width: '100px' }}><b>Add rate:</b></span> */}
                                   <Select
           className="basic-singl-select"
@@ -348,7 +348,7 @@ class TreeNode extends React.Component {
         // console.log(this.props);
         return (
             <li className={nodeClass}>
-                <span className="rct-text" style={{ padding: '5px' }}>
+                <span className="rct-text" style={{ padding: '5px', margin: '5px', height: '45px', border: '1px solid rgb(224, 224, 227)' }}>
                     {this.renderCollapseButton()}
                     {this.renderLabel()}
                 </span>
