@@ -259,7 +259,7 @@ class TreeNode extends React.Component {
                                   <Select
           className="basic-singl-select"
           classNamePrefix="select"
-          isDisabled={isDisabled}
+          isDisabled={disabled}
           isLoading={isLoading}
           isClearable={isClearable}
           isRtl={isRtl}

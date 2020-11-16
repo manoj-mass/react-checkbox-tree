@@ -9,17 +9,20 @@ const nodes = [
           "children": [
             {
               "label": "Fully Flexible",
-              "value": "f922f8df.140.arise-861"
+              "value": "f922f8df.140.arise-861",
+              "disabled": true
             }
           ],
           "value": "f922f8df.140",
-          "label": "1 Bedroom Apartment"
+          "label": "1 Bedroom Apartment",
+          "disabled": true
         },
         {
           "children": [
             {
               "label": "Long Stay 7+ Flexible",
-              "value": "f922f8df.143.arise-863"
+              "value": "f922f8df.143.arise-863",
+
             },
             {
               "label": "Fully Flexible",
