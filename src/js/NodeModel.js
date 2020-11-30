@@ -110,11 +110,17 @@ class NodeModel {
     }
 
     deserializeInputValues(inputList) {
-        // console.log("setInputs", inputList);
-        inputList.forEach((listKey) => {
-            // console.log(this.flatNodes[listKey.hotel])
+        inputList && inputList.forEach((listKey) => {
             if (this.flatNodes[listKey.hotel] !== undefined) {
                 this.flatNodes[listKey.hotel].inputValue = listKey.rate;
+            }
+        });
+    }
+
+    deserializeHotelInputValues(values) {
+        values && values.forEach((listKey) => {
+            if (this.flatNodes[listKey.hotel] !== undefined) {
+                this.flatNodes[listKey.hotel].multiInputValue = listKey.rates;
             }
         });
     }
@@ -132,6 +138,23 @@ class NodeModel {
                 list.filter((el) => el.hotel === this.flatNodes[value].value).length === 0 && list.push({ hotel: value, rate: this.flatNodes[value].inputValue });
             } else {
                list.filter((el) => el.hotel === key.hotel).length === 0 && list.push(key);
+            }
+        });
+        return list;
+    }
+
+    serializeHotelListInputValues(key) {
+        const list = [];
+        Object.keys(this.flatNodes).forEach((value) => {
+            if (this.flatNodes[value].multiInputValue) {
+                list.filter((el) => el.hotel === this.flatNodes[value].value).length > 0 &&
+                list.map(p => p.hotel === value
+                                      ? { ...p,  rates: key.rates }
+                                      : p
+                                  );
+                list.filter((el) => el.hotel === this.flatNodes[value].value).length === 0 && list.push({ hotel: value, rates: this.flatNodes[value].multiInputValue });
+            } else {
+              list.filter((el) => el.hotel === key.hotel).length === 0 && list.push(key);
             }
         });
         return list;

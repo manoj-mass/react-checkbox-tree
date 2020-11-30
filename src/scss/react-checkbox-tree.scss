@@ -10,6 +10,12 @@ $rct-clickable-focus: rgba($rct-icon-color, .2) !default;
 		display: inline-block !important; // No result reported
 	}
 }
+.basic-multi-select {
+	width: 400px;
+	input[type=text] {
+		display: inline-block !important; // No result reported
+	}
+}
 .react-checkbox-tree {
   display: flex;
   flex-direction: row-reverse;

@@ -611,26 +611,32 @@ const nodes = [
   ]
 
   const inputSelected = [
-      {hotel: 152, rate: 'arise|722'}, { hotel: 155, rate: 'arise|519'}
+      { hotel: 152, rate: 'arise|722'}, { hotel: 155, rate: 'arise|519' }
   ]
-
+  const hotelInputSelcted = [
+    { hotel: "f922f8df", rates: ["arise|241"] },
+    { hotel: "a3fe", rates: ["arise|735","arise|241"] }
+  ]
 class BasicExample extends React.Component {
-    state = {
-        checked: [
-            152
-        ],
-        expanded: [
 
-        ],
-        rate: inputSelected,
-    };
 
     constructor(props) {
         super(props);
+        this.state = {
+            checked: [
+                152
+            ],
+            expanded: [
 
+            ],
+            rate: inputSelected,
+            hotelRates: hotelInputSelcted,
+        };
         this.onCheck = this.onCheck.bind(this);
         this.onExpand = this.onExpand.bind(this);
         this.onRateChange = this.onRateChange.bind(this);
+        this.onHotelRateChange = this.onHotelRateChange.bind(this);
+
     }
 
     onCheck(checked, info) {
@@ -647,6 +653,12 @@ class BasicExample extends React.Component {
       this.setState({ rate: data })
     }
 
+    onHotelRateChange(data){
+        console.log("onHotelRateChange", data);
+        this.setState({ hotelRates: data })
+
+    }
+
     render() {
         const options = [
             { value: 'chocolate', label: 'Chocolate' },
@@ -654,12 +666,9 @@ class BasicExample extends React.Component {
             { value: 'vanilla', label: 'Vanilla' }
           ]
 
-        const { checked, expanded, rate } = this.state;
-
+        const { checked, expanded, rate, hotelRates } = this.state;
         return (
           <>
-            <Select options={options} />
-
             <CheckboxTree
                 checked={checked}
                 expanded={expanded}
@@ -669,8 +678,10 @@ class BasicExample extends React.Component {
                 onExpand={this.onExpand}
                 toggelInputs
                 rateList={ rates.map(data =>( {'value': data.id, 'label': `${data.name} ${data.id}`} ))}
-                inputSelected={rate}
+                inputSelected={this.state.rate}
+                hotelInputs={this.state.hotelRates}
                 onRate={this.onRateChange}
+                onHotelRate={this.onHotelRateChange}
             >
             </CheckboxTree>
             </>

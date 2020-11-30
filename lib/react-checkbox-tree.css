@@ -6,6 +6,14 @@
   display: inline-block !important;
 }
 
+.basic-multi-select {
+  width: 400px;
+}
+
+.basic-multi-select input[type=text] {
+  display: inline-block !important;
+}
+
 .react-checkbox-tree {
   display: -webkit-box;
   display: -ms-flexbox;

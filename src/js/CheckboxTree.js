@@ -18,6 +18,7 @@ class CheckboxTree extends React.Component {
         nodes: PropTypes.arrayOf(nodeShape).isRequired,
 
         inputSelected: PropTypes.array,
+        hotelInputs: PropTypes.array,
         checkModel: PropTypes.oneOf([constants.CheckModel.LEAF, constants.CheckModel.ALL]),
         checked: listShape,
         direction: PropTypes.string,
@@ -44,6 +45,7 @@ class CheckboxTree extends React.Component {
         onExpand: PropTypes.func,
         rateList: PropTypes.array,
         onRate: PropTypes.func,
+        onHotelRate: PropTypes.func
     };
 
     static defaultProps = {
@@ -100,6 +102,7 @@ class CheckboxTree extends React.Component {
         });
 
         model.deserializeInputValues(props.inputSelected);
+        model.deserializeHotelInputValues(props.hotelInputs);
         this.state = {
             id: props.id || `rct-${nanoid(7)}`,
             model,
@@ -112,6 +115,7 @@ class CheckboxTree extends React.Component {
         this.onExpandAll = this.onExpandAll.bind(this);
         this.onCollapseAll = this.onCollapseAll.bind(this);
         this.onRate = this.onRate.bind(this);
+        this.onHotelRate = this.onHotelRate.bind(this);
     }
 
     // eslint-disable-next-line react/sort-comp
@@ -138,6 +142,7 @@ class CheckboxTree extends React.Component {
             expanded: newProps.expanded,
         });
         model.deserializeInputValues(newProps.inputSelected);
+        model.deserializeHotelInputValues(newProps.hotelInputs);
 
         return newState;
     }
@@ -163,9 +168,11 @@ class CheckboxTree extends React.Component {
     onRate(nodeInfo) {
         const model = this.state.model.clone();
         this.props.onRate(model.serializeListInputValues(nodeInfo));
-        // console.log("nodeInfo: ", nodeInfo)
     }
-
+    onHotelRate(nodeInfo){
+       const model = this.state.model.clone();
+        this.props.onHotelRate(model.serializeHotelListInputValues(nodeInfo));
+    }
     onNodeClick(nodeInfo) {
         const { onClick } = this.props;
         const { model } = this.state;
@@ -287,10 +294,12 @@ class CheckboxTree extends React.Component {
                     onClick={onClick && this.onNodeClick}
                     onExpand={this.onExpand}
                     onRate={this.onRate}
+                    onHotelRate={this.onHotelRate}
                     treeDepth={flatNode.treeDepth}
                     toggelInputs={toggelInputs}
                     rateList={rateList}
                     inputValue={flatNode.inputValue}
+                    multiInputValue={flatNode.multiInputValue}
                 >
                     {children}
                 </TreeNode>

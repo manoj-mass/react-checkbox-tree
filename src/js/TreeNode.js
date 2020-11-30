@@ -1,8 +1,7 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Select from 'react-select';
-
+import Select, { components } from "react-select";
 import Button from './Button';
 import NativeCheckbox from './NativeCheckbox';
 import iconsShape from './shapes/iconsShape';
@@ -30,6 +29,7 @@ class TreeNode extends React.Component {
         onCheck: PropTypes.func.isRequired,
         onExpand: PropTypes.func.isRequired,
         onRate: PropTypes.func,
+        onHotelRate: PropTypes.func,
         treeDepth: PropTypes.number.isRequired,
         children: PropTypes.node,
         className: PropTypes.string,
@@ -40,7 +40,8 @@ class TreeNode extends React.Component {
         title: PropTypes.string,
         onClick: PropTypes.func,
         rateList: PropTypes.array,
-        inputValue: PropTypes.string
+        inputValue: PropTypes.string,
+        multiInputValue: PropTypes.array
     };
 
     static defaultProps = {
@@ -57,6 +58,7 @@ class TreeNode extends React.Component {
         super(props);
         this.state = {
             rate: props.inputValue,
+            hotelRates: props.multiInputValue?.map(data => ({'value': data, 'label': props.rateList?.find(rate => rate.value === data)?.label }) ),
             isClearable: false,
             isDisabled: false,
             isLoading: false,
@@ -67,6 +69,7 @@ class TreeNode extends React.Component {
         this.onClick = this.onClick.bind(this);
         this.onExpand = this.onExpand.bind(this);
         this.onRateChangeHandler = this.onRateChangeHandler.bind(this);
+        this.onChangeCallback = this.onChangeCallback.bind(this);
     }
 
     onCheck() {
@@ -83,6 +86,13 @@ class TreeNode extends React.Component {
         onRate({ hotel: value, rate: e.value });
     }
 
+    onChangeCallback(data) {
+        // console.log("data: ", data)
+        this.setState({ hotelRates: data });
+
+        const { value, onHotelRate } = this.props;
+        onHotelRate({ hotel: value, rates: data })
+    }
     onClick() {
         const {
             expandOnClick,
@@ -237,6 +247,21 @@ class TreeNode extends React.Component {
           } = this.state;
         const clickable = onClick !== null;
         const inputId = `${treeId}-${String(value).split(' ').join('_')}`;
+        const Option = props => (
+            <div>
+              <components.Option {...props} style={{ display: 'flex'}}>
+                <input style={{display: 'flex'}} type="checkbox" checked={props.isSelected} onChange={() => null} />{" "}
+                <label>{props.label}</label>
+              </components.Option>
+            </div>
+          );
+
+          const MultiValue = props => (
+            <components.MultiValue {...props}>
+              <span>{props.data.label}</span>
+            </components.MultiValue>
+          );
+
         const render = [(
             <>
             <label key={0} htmlFor={inputId} title={title} style={{ width: '100%' }}>
@@ -253,6 +278,21 @@ class TreeNode extends React.Component {
                 </span>
                 {!clickable ? children : null}
             </label>
+            { treeDepth === 0 && toggelInputs && (<>
+                <Select
+                          className="basic-multi-select"
+        closeMenuOnSelect={false}
+        isMulti
+        components={{ Option, MultiValue }}
+        options={rateList}
+        hideSelectedOptions={false}
+        backspaceRemovesValue={false}
+        onChange={data => this.onChangeCallback(data)}
+        value={this.state.hotelRates}
+        // value={this.state?.hotelRates?.map(data => ({'value': data, 'label': rateList?.find(rate => rate.value === data)?.label }) )  }
+      />
+            </>)
+            }
             { treeDepth === 1 && toggelInputs && (
                     <span style={{ display: 'inline-flex', position: 'relative', right: 0 }}>
                         {/* <span style={{padding: '4px', width: '100px' }}><b>Add rate:</b></span> */}
@@ -348,7 +388,7 @@ class TreeNode extends React.Component {
         // console.log(this.props);
         return (
             <li className={nodeClass}>
-                <span className="rct-text" style={{ padding: '5px', margin: '5px', height: '45px', border: '1px solid rgb(224, 224, 227)' }}>
+                <span className="rct-text" style={{ padding: '5px', margin: '5px', minHeight: '45px', border: '1px solid rgb(224, 224, 227)' }}>
                     {this.renderCollapseButton()}
                     {this.renderLabel()}
                 </span>
