@@ -128,6 +128,7 @@ const nodes = [
     }
   ];
   const rates =   [
+    {'id': 'none', 'name': 'None'},
     {
       "id": "arise|734",
       "rateId": "734",
@@ -677,6 +678,7 @@ class BasicExample extends React.Component {
                 onCheck={this.onCheck}
                 onExpand={this.onExpand}
                 toggelInputs
+                toggelHotelInputs
                 rateList={ rates.map(data =>( {'value': data.id, 'label': `${data.name} ${data.id}`} ))}
                 inputSelected={this.state.rate}
                 hotelInputs={this.state.hotelRates}

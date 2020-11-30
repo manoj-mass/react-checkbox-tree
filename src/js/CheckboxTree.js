@@ -40,6 +40,7 @@ class CheckboxTree extends React.Component {
         showNodeIcon: PropTypes.bool,
         showNodeTitle: PropTypes.bool,
         toggelInputs: PropTypes.bool,
+        toggelHotelInputs: PropTypes.bool,
         onCheck: PropTypes.func,
         onClick: PropTypes.func,
         onExpand: PropTypes.func,
@@ -89,6 +90,7 @@ class CheckboxTree extends React.Component {
         onClick: null,
         onExpand: () => { },
         toggelInputs: false,
+        toggelHotelInputs: false
     };
 
     constructor(props) {
@@ -243,6 +245,7 @@ class CheckboxTree extends React.Component {
             showNodeTitle,
             showNodeIcon,
             toggelInputs,
+            toggelHotelInputs,
             rateList,
         } = this.props;
         const { id, model } = this.state;
@@ -297,6 +300,7 @@ class CheckboxTree extends React.Component {
                     onHotelRate={this.onHotelRate}
                     treeDepth={flatNode.treeDepth}
                     toggelInputs={toggelInputs}
+                    toggelHotelInputs={toggelHotelInputs}
                     rateList={rateList}
                     inputValue={flatNode.inputValue}
                     multiInputValue={flatNode.multiInputValue}

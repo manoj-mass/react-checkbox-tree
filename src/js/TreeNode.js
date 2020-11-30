@@ -37,6 +37,7 @@ class TreeNode extends React.Component {
         icon: PropTypes.node,
         showCheckbox: PropTypes.bool,
         toggelInputs: PropTypes.bool,
+        toggelHotelInputs: PropTypes.bool,
         title: PropTypes.string,
         onClick: PropTypes.func,
         rateList: PropTypes.array,
@@ -235,7 +236,7 @@ class TreeNode extends React.Component {
             treeId,
             value,
             onClick,
-            treeDepth, toggelInputs, rateList
+            treeDepth, toggelInputs, rateList, toggelHotelInputs
 
         } = this.props;
         const {
@@ -278,13 +279,13 @@ class TreeNode extends React.Component {
                 </span>
                 {!clickable ? children : null}
             </label>
-            { treeDepth === 0 && toggelInputs && (<>
+            { treeDepth === 0 && toggelHotelInputs && (<>
                 <Select
                           className="basic-multi-select"
         closeMenuOnSelect={false}
         isMulti
         components={{ Option, MultiValue }}
-        options={rateList}
+        options={rateList.filter(data => data.value !== 'none')}
         hideSelectedOptions={false}
         backspaceRemovesValue={false}
         onChange={data => this.onChangeCallback(data)}
