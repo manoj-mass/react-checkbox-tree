@@ -140,6 +140,7 @@ class NodeModel {
                list.filter((el) => el.hotel === key.hotel).length === 0 && list.push(key);
             }
         });
+        console.log("List: ", list);
         return list;
     }
 

@@ -3,12 +3,22 @@
 @rct-label-active: rgba(red(@rct-icon-color), green(@rct-icon-color), blue(@rct-icon-color), .15);
 @rct-clickable-hover: rgba(red(@rct-icon-color), green(@rct-icon-color), blue(@rct-icon-color), .1);
 @rct-clickable-focus: rgba(red(@rct-icon-color), green(@rct-icon-color), blue(@rct-icon-color), .2);
+// sass-lint:disable-all
+
 .basic-singl-select {
 	width: 300px;
 	input[type=text] {
 		display: inline-block !important;
 	}
 }
+
+.basic-multi-select {
+	width: 400px;
+	input[type=text] {
+		display: inline-block !important; // No result reported
+	}
+}
+
 .react-checkbox-tree {
   display: flex;
   flex-direction: row-reverse;
