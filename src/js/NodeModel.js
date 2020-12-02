@@ -140,7 +140,6 @@ class NodeModel {
                list.filter((el) => el.hotel === key.hotel).length === 0 && list.push(key);
             }
         });
-        console.log("List: ", list);
         return list;
     }
 
@@ -148,16 +147,18 @@ class NodeModel {
         const list = [];
         Object.keys(this.flatNodes).forEach((value) => {
             if (this.flatNodes[value].multiInputValue) {
+
                 list.filter((el) => el.hotel === this.flatNodes[value].value).length > 0 &&
                 list.map(p => p.hotel === value
-                                      ? { ...p,  rates: key?.rates.map(i => i.value) }
+                                      ? { ...p,  rates: key?.rates ? key?.rates.map(i => i.value) : [] }
                                       : p
                                   );
                 list.filter((el) => el.hotel === this.flatNodes[value].value).length === 0 && list.push({ hotel: value, rates: this.flatNodes[value].multiInputValue });
             } else {
-              list.filter((el) => el.hotel === key.hotel).length === 0 && list.push( {hotel: key.hotel, rates: key?.rates.map(v => v.value) } );
+              list.filter((el) => (el.hotel === key.hotel)).length === 0 && list.push( { hotel: key.hotel, rates: key?.rates ? key?.rates.map(v => v.value) : [] } );
             }
         });
+        console.log("List: ", list);
         return list;
     }
 
