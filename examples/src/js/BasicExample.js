@@ -4,619 +4,283 @@ import Select from 'react-select'
 
 const nodes = [
     {
-      "children": [
-        {
-          "children": [
-            {
-              "label": "Fully Flexible",
-              "value": "f922f8df.140.arise-861",
-              "disabled": true
-            }
-          ],
-          "value": "f922f8df.140",
-          "label": "1 Bedroom Apartment",
-          "disabled": true
-        },
-        {
-          "children": [
-            {
-              "label": "Long Stay 7+ Flexible",
-              "value": "f922f8df.143.arise-863",
-
-            },
-            {
-              "label": "Fully Flexible",
-              "value": "f922f8df.143.arise-861"
-            },
-            {
-              "label": "Stay & Save 2+ Non Refundable",
-              "value": "f922f8df.143.arise-864"
-            },
-            {
-              "label": "Stay & Save 2+ Flexible",
-              "value": "f922f8df.143.arise-862"
-            }
-          ],
-          "value": "f922f8df.143",
-          "label": "1 Bedroom Skyline Apartment"
-        },
-        {
-          "children": [
-            {
-              "label": "Long Stay 7+ Flexible",
-              "value": "f922f8df.146.arise-863"
-            }
-          ],
-          "value": "f922f8df.146",
-          "label": "2 Bedroom 1 Bathroom Apartment"
-        },
-        {
-          "label": "2 Bedroom 1 Bathroom Skyline Apartment",
-          "value": 149
-        },
-        {
-          "label": "2 Bedroom 2 Bathroom Apartment",
-          "value": 152
-        },
-        {
-          "label": "2 Bedroom 2 Bathroom Skyline Apartment",
-          "value": 155
-        }
-      ],
       "value": "f922f8df",
-      "label": "Arise Australia 108"
-    },
-    {
-      "value": "a3fe",
-      "label": "Brisbane One"
-    },
-    {
+      "label": "Arise Australia 108",
+      "disabled": false,
       "children": [
         {
+          "value": "f922f8df:140",
+          "label": "1 Bedroom Apartment",
+          "disabled": false,
           "children": [
             {
-              "label": "Fully Flexible",
-              "value": "245d.207.arise-861"
+              "value": "f922f8df:140:arise-861",
+              "disabled": false,
+              "label": "Fully Flexible"
             },
             {
-              "label": "Long Stay 7+ Flexible",
-              "value": "245d.207.arise-863"
+              "value": "f922f8df:140:arise-865",
+              "disabled": false,
+              "label": "Stay Longer 3+ Non Refundable"
             },
             {
-              "label": "Stay & Save 2+ Flexible",
-              "value": "245d.207.arise-862"
+              "value": "f922f8df:140:arise-863",
+              "disabled": false,
+              "label": "Long Stay 7+ Flexible"
             },
             {
-              "label": "Stay & Save 2+ Non Refundable",
-              "value": "245d.207.arise-864"
+              "value": "f922f8df:140:arise-862",
+              "disabled": false,
+              "label": "Stay & Save 2+ Flexible"
             },
             {
-              "label": "Stay Longer 3+ Non Refundable",
-              "value": "245d.207.arise-865"
+              "value": "f922f8df:140:arise-864",
+              "disabled": false,
+              "label": "Stay & Save 2+ Non Refundable"
             }
-          ],
-          "value": "245d.207",
-          "label": "BS 1 Bedroom City"
+          ]
         },
         {
-          "value": "245d.208",
-          "label": "BS 1 Bedroom Sky High"
-        }
-      ],
-      "value": "245d",
-      "label": "Brisbane Skytower"
-    },
-    {
-      "children": [
-        {
+          "value": "f922f8df:143",
+          "label": "1 Bedroom Skyline Apartment",
+          "disabled": false,
           "children": [
             {
-              "label": "Fully Flexible",
-              "value": "30eb.77.arise-861"
+              "value": "f922f8df:143:arise-865",
+              "disabled": false,
+              "label": "Stay Longer 3+ Non Refundable"
+            },
+            {
+              "value": "f922f8df:143:arise-861",
+              "disabled": false,
+              "label": "Fully Flexible"
+            },
+            {
+              "value": "f922f8df:143:arise-863",
+              "disabled": false,
+              "label": "Long Stay 7+ Flexible"
+            },
+            {
+              "value": "f922f8df:143:arise-862",
+              "disabled": false,
+              "label": "Stay & Save 2+ Flexible"
+            },
+            {
+              "value": "f922f8df:143:arise-864",
+              "disabled": false,
+              "label": "Stay & Save 2+ Non Refundable"
             }
-          ],
-          "value": "30eb.77",
-          "label": "AR 1 Bedroom"
+          ]
+        },
+        {
+          "value": "f922f8df:146",
+          "label": "2 Bedroom 1 Bathroom Apartment",
+          "disabled": false,
+          "children": [
+            {
+              "value": "f922f8df:146:arise-865",
+              "disabled": false,
+              "label": "Stay Longer 3+ Non Refundable"
+            },
+            {
+              "value": "f922f8df:146:arise-861",
+              "disabled": false,
+              "label": "Fully Flexible"
+            },
+            {
+              "value": "f922f8df:146:arise-863",
+              "disabled": false,
+              "label": "Long Stay 7+ Flexible"
+            },
+            {
+              "value": "f922f8df:146:arise-862",
+              "disabled": false,
+              "label": "Stay & Save 2+ Flexible"
+            },
+            {
+              "value": "f922f8df:146:arise-864",
+              "disabled": false,
+              "label": "Stay & Save 2+ Non Refundable"
+            }
+          ]
+        },
+        {
+          "value": "f922f8df:155",
+          "label": "2 Bedroom 2 Bathroom Skyline Apartment",
+          "disabled": false,
+          "children": [
+            {
+              "value": "f922f8df:155:arise-865",
+              "disabled": false,
+              "label": "Stay Longer 3+ Non Refundable"
+            },
+            {
+              "value": "f922f8df:155:arise-862",
+              "disabled": false,
+              "label": "Stay & Save 2+ Flexible"
+            },
+            {
+              "value": "f922f8df:155:arise-861",
+              "disabled": false,
+              "label": "Fully Flexible"
+            }
+          ]
         }
-      ],
-      "value": "30eb",
-      "label": "Arena"
+      ]
     },
     {
-      "value": "06db",
-      "label": "Hedge"
+      "value": "672a",
+      "label": "Atlas",
+      "disabled": false,
+      "children": [
+        {
+          "value": "672a:29",
+          "label": "AT 1 Bedroom",
+          "disabled": false,
+          "children": [
+            {
+              "value": "672a:29:arise-865",
+              "disabled": false,
+              "label": "Stay Longer 3+ Non Refundable"
+            },
+            {
+              "value": "672a:29:arise-861",
+              "disabled": false,
+              "label": "Fully Flexible"
+            }
+          ]
+        }
+      ]
     }
   ];
-  const rates =   [
+
+  const rates = [
     {'id': 'none', 'name': 'None'},
     {
-      "id": "arise|734",
-      "rateId": "734",
+      "id": "arise-865",
+      "rateId": "865",
       "chainId": "arise",
-      "name": "1Nt BAR",
-      "customerFacingName": null,
-      "code": "BAR1",
-      "rateChargeDescription": "1Nt BAR",
-      "rateStructure": "OTA",
-      "bookingSourceId": 0,
-      "cancellationPolicy": "5f5ad62490a03526b84b17d8",
-      "paymentType": "payOnArrival",
-      "facilities": null,
-      "createdTime": null,
-      "updatedTime": [
-        2020,
-        9,
-        16,
-        3,
-        58,
-        0,
-        246000000
-      ]
-    },
-    {
-      "id": "arise|722",
-      "rateId": "722",
-      "chainId": "arise",
-      "name": "Accommodation",
-      "customerFacingName": null,
-      "code": "BS Group Static 1 Night Minimum",
-      "rateChargeDescription": "Accommodation",
-      "rateStructure": "OTA",
-      "bookingSourceId": 8,
-      "cancellationPolicy": "5f5ad62490a03526b84b17d8",
-      "paymentType": "payOnArrival",
-      "facilities": null,
-      "createdTime": null,
-      "updatedTime": [
-        2020,
-        9,
-        16,
-        3,
-        58,
-        0,
-        263000000
-      ]
-    },
-    {
-      "id": "arise|735",
-      "rateId": "735",
-      "chainId": "arise",
-      "name": "AR 1 BR Long Stay Rate",
-      "customerFacingName": null,
-      "code": "Longstay",
-      "rateChargeDescription": "AR 1 BR Long Stay Rate",
-      "rateStructure": "OTA",
-      "bookingSourceId": 0,
-      "cancellationPolicy": "5f5ad62490a03526b84b17d8",
-      "paymentType": "payOnArrival",
-      "facilities": null,
-      "createdTime": null,
-      "updatedTime": [
-        2020,
-        9,
-        16,
-        3,
-        58,
-        0,
-        267000000
-      ]
-    },
-    {
-      "id": "arise|241",
-      "rateId": "241",
-      "chainId": "arise",
-      "name": "AR 1Nt+ Flexi Direct",
-      "customerFacingName": null,
-      "code": "AR1FD",
-      "rateChargeDescription": "Accommodation",
-      "rateStructure": "OTA",
-      "bookingSourceId": 1,
-      "cancellationPolicy": "5f5ad62490a03526b84b17d8",
-      "paymentType": "payOnArrival",
-      "facilities": null,
-      "createdTime": null,
-      "updatedTime": [
-        2020,
-        9,
-        16,
-        3,
-        58,
-        0,
-        272000000
-      ]
-    },
-    {
-      "id": "arise|519",
-      "rateId": "519",
-      "chainId": "arise",
-      "name": "AR 1Nt+ Flexi GDS",
-      "customerFacingName": null,
-      "code": "AR1FGDS",
-      "rateChargeDescription": "Accommodation",
-      "rateStructure": "OTA",
-      "bookingSourceId": 10,
-      "cancellationPolicy": "5f5ad62490a03526b84b17d8",
-      "paymentType": "payOnArrival",
-      "facilities": null,
-      "createdTime": null,
-      "updatedTime": [
-        2020,
-        9,
-        16,
-        3,
-        58,
-        0,
-        276000000
-      ]
-    },
-    {
-      "id": "arise|243",
-      "rateId": "243",
-      "chainId": "arise",
-      "name": "AR 1Nt+ Flexi OTA",
-      "customerFacingName": null,
-      "code": "AR1FO",
-      "rateChargeDescription": "Accommodation",
-      "rateStructure": "OTA",
-      "bookingSourceId": 5,
-      "cancellationPolicy": "5f5ad62490a03526b84b17d8",
-      "paymentType": "payOnArrival",
-      "facilities": null,
-      "createdTime": null,
-      "updatedTime": [
-        2020,
-        9,
-        16,
-        3,
-        58,
-        0,
-        279000000
-      ]
-    },
-    {
-      "id": "arise|244",
-      "rateId": "244",
-      "chainId": "arise",
-      "name": "AR 1Nt+ Flexi OTA VCC",
-      "customerFacingName": null,
-      "code": "AR1FOV",
-      "rateChargeDescription": "Accommodation",
-      "rateStructure": "OTA",
-      "bookingSourceId": 5,
-      "cancellationPolicy": "5f5ad62490a03526b84b17d8",
-      "paymentType": "payOnArrival",
-      "facilities": null,
-      "createdTime": null,
-      "updatedTime": [
-        2020,
-        9,
-        16,
-        3,
-        58,
-        0,
-        282000000
-      ]
-    },
-    {
-      "id": "arise|622",
-      "rateId": "622",
-      "chainId": "arise",
-      "name": "AR 1Nt+ GDS Flight Centre",
-      "customerFacingName": null,
-      "code": "AR1GDSFC",
-      "rateChargeDescription": "Accommodation",
-      "rateStructure": "OTA",
-      "bookingSourceId": 10,
-      "cancellationPolicy": "5f5ad62490a03526b84b17d8",
-      "paymentType": "payOnArrival",
-      "facilities": null,
-      "createdTime": null,
-      "updatedTime": [
-        2020,
-        9,
-        16,
-        3,
-        58,
-        0,
-        285000000
-      ]
-    },
-    {
-      "id": "arise|650",
-      "rateId": "650",
-      "chainId": "arise",
-      "name": "AR 1Nt+ GRP Dynamic",
-      "customerFacingName": null,
-      "code": "ARGRP1N",
-      "rateChargeDescription": "Accommodation",
-      "rateStructure": "OTA",
-      "bookingSourceId": 1,
-      "cancellationPolicy": "5f5ad62490a03526b84b17d8",
-      "paymentType": "payOnArrival",
-      "facilities": null,
-      "createdTime": null,
-      "updatedTime": [
-        2020,
-        9,
-        16,
-        3,
-        58,
-        0,
-        290000000
-      ]
-    },
-    {
-      "id": "arise|245",
-      "rateId": "245",
-      "chainId": "arise",
-      "name": "AR 1Nt+ NonRef Direct",
-      "customerFacingName": null,
-      "code": "AR1NRD",
-      "rateChargeDescription": "Accommodation",
-      "rateStructure": "OTA",
-      "bookingSourceId": 5,
-      "cancellationPolicy": "5f5ad62490a03526b84b17d8",
-      "paymentType": "payOnArrival",
-      "facilities": null,
-      "createdTime": null,
-      "updatedTime": [
-        2020,
-        9,
-        16,
-        3,
-        58,
-        0,
-        296000000
-      ]
-    },
-    {
-      "id": "arise|246",
-      "rateId": "246",
-      "chainId": "arise",
-      "name": "AR 1Nt+ NonRef OTA",
-      "customerFacingName": null,
-      "code": "AR1NRO",
-      "rateChargeDescription": "Accommodation",
-      "rateStructure": "OTA",
-      "bookingSourceId": 5,
-      "cancellationPolicy": "5f5ad62490a03526b84b17d8",
-      "paymentType": "payOnArrival",
-      "facilities": null,
-      "createdTime": null,
-      "updatedTime": [
-        2020,
-        9,
-        16,
-        3,
-        58,
-        0,
-        300000000
-      ]
-    },
-    {
-      "id": "arise|247",
-      "rateId": "247",
-      "chainId": "arise",
-      "name": "AR 1Nt+ NonRef OTA VCC",
-      "customerFacingName": null,
-      "code": "AR1NROV",
-      "rateChargeDescription": "Accommodation",
-      "rateStructure": "OTA",
-      "bookingSourceId": 5,
-      "cancellationPolicy": "5f5ad62490a03526b84b17d8",
-      "paymentType": "payOnArrival",
-      "facilities": null,
-      "createdTime": null,
-      "updatedTime": [
-        2020,
-        9,
-        16,
-        3,
-        58,
-        0,
-        305000000
-      ]
-    },
-    {
-      "id": "arise|736",
-      "rateId": "736",
-      "chainId": "arise",
-      "name": "AR 2 BR Long stay rate",
-      "customerFacingName": null,
+      "name": "Stay Longer 3+ Non Refundable",
+      "customerFacingName": "Stay Longer 3+ Non Refundable",
       "code": "",
-      "rateChargeDescription": "AR 2 BR Long stay rate",
+      "rateChargeDescription": "Stay Longer 3+ Non Refundable",
       "rateStructure": "OTA",
       "bookingSourceId": 0,
-      "cancellationPolicy": "5f5ad62490a03526b84b17d8",
-      "paymentType": "payOnArrival",
+      "cancellationPolicy": "5fba155cce5870278a6e7268",
+      "paymentType": "fullUpfrontPayment",
       "facilities": null,
       "createdTime": null,
       "updatedTime": [
         2020,
-        9,
-        16,
-        3,
-        58,
+        12,
+        2,
+        7,
+        40,
         0,
-        309000000
+        407000000
       ]
     },
     {
-      "id": "arise|248",
-      "rateId": "248",
+      "id": "arise-861",
+      "rateId": "861",
       "chainId": "arise",
-      "name": "AR 2Nt+ Flexi Direct",
-      "customerFacingName": null,
-      "code": "AR2FD",
-      "rateChargeDescription": "Accommodation",
+      "name": "Fully Flexible",
+      "customerFacingName": "Fully Flexible",
+      "code": "",
+      "rateChargeDescription": "Fully Flexible",
       "rateStructure": "OTA",
-      "bookingSourceId": 1,
-      "cancellationPolicy": "5f5ad62490a03526b84b17d8",
+      "bookingSourceId": 0,
+      "cancellationPolicy": "5face6d05768ac68fd5d58a8",
       "paymentType": "payOnArrival",
       "facilities": null,
       "createdTime": null,
       "updatedTime": [
         2020,
-        9,
-        16,
-        3,
-        58,
+        12,
+        2,
+        7,
+        40,
         0,
-        315000000
+        401000000
       ]
     },
     {
-      "id": "arise|520",
-      "rateId": "520",
+      "id": "arise-863",
+      "rateId": "863",
       "chainId": "arise",
-      "name": "AR 2Nt+ Flexi GDS",
-      "customerFacingName": null,
-      "code": "AR2FGDS",
-      "rateChargeDescription": "Accommodation",
+      "name": "Long Stay 7+ Flexible",
+      "customerFacingName": "Long Stay 7+ Flexible",
+      "code": "",
+      "rateChargeDescription": "Long Stay 7+ Flexible",
       "rateStructure": "OTA",
-      "bookingSourceId": 10,
-      "cancellationPolicy": "5f5ad62490a03526b84b17d8",
+      "bookingSourceId": 0,
+      "cancellationPolicy": "5face6d05768ac68fd5d58a8",
       "paymentType": "payOnArrival",
       "facilities": null,
       "createdTime": null,
       "updatedTime": [
         2020,
-        9,
-        16,
-        3,
-        58,
+        12,
+        2,
+        7,
+        40,
         0,
-        318000000
+        403000000
       ]
     },
     {
-      "id": "arise|249",
-      "rateId": "249",
+      "id": "arise-862",
+      "rateId": "862",
       "chainId": "arise",
-      "name": "AR 2Nt+ Flexi OTA",
-      "customerFacingName": null,
-      "code": "AR2FO",
-      "rateChargeDescription": "Accommodation",
+      "name": "Stay & Save 2+ Flexible",
+      "customerFacingName": "Stay & Save 2+ Flexible",
+      "code": "",
+      "rateChargeDescription": "Stay & Save 2+ Flexible",
       "rateStructure": "OTA",
-      "bookingSourceId": 5,
-      "cancellationPolicy": "5f5ad62490a03526b84b17d8",
+      "bookingSourceId": 0,
+      "cancellationPolicy": "5face6d05768ac68fd5d58a8",
       "paymentType": "payOnArrival",
       "facilities": null,
       "createdTime": null,
       "updatedTime": [
         2020,
-        9,
-        16,
-        3,
-        58,
+        12,
+        2,
+        7,
+        40,
         0,
-        321000000
+        404000000
       ]
     },
     {
-      "id": "arise|250",
-      "rateId": "250",
+      "id": "arise-864",
+      "rateId": "864",
       "chainId": "arise",
-      "name": "AR 2Nt+ Flexi OTA VCC",
-      "customerFacingName": null,
-      "code": "AR2OV",
-      "rateChargeDescription": "Accommodation",
+      "name": "Stay & Save 2+ Non Refundable",
+      "customerFacingName": "Stay & Save 2+ Non Refundable",
+      "code": "",
+      "rateChargeDescription": "Stay & Save 2+ Non Refundable",
       "rateStructure": "OTA",
-      "bookingSourceId": 5,
-      "cancellationPolicy": "5f5ad62490a03526b84b17d8",
+      "bookingSourceId": 0,
+      "cancellationPolicy": "5face6d05768ac68fd5d58a8",
       "paymentType": "payOnArrival",
       "facilities": null,
       "createdTime": null,
       "updatedTime": [
         2020,
-        9,
-        16,
-        3,
-        58,
+        12,
+        2,
+        7,
+        40,
         0,
-        324000000
-      ]
-    },
-    {
-      "id": "arise|623",
-      "rateId": "623",
-      "chainId": "arise",
-      "name": "AR 2Nt+ GDS Flight Centre",
-      "customerFacingName": null,
-      "code": "AR2GDSFC",
-      "rateChargeDescription": "Accommodation",
-      "rateStructure": "OTA",
-      "bookingSourceId": 10,
-      "cancellationPolicy": "5f5ad62490a03526b84b17d8",
-      "paymentType": "payOnArrival",
-      "facilities": null,
-      "createdTime": null,
-      "updatedTime": [
-        2020,
-        9,
-        16,
-        3,
-        58,
-        0,
-        339000000
-      ]
-    },
-    {
-      "id": "arise|651",
-      "rateId": "651",
-      "chainId": "arise",
-      "name": "AR 2Nt+ GRP Dynamic",
-      "customerFacingName": null,
-      "code": "AR2NGRP",
-      "rateChargeDescription": "Accommodation",
-      "rateStructure": "OTA",
-      "bookingSourceId": 1,
-      "cancellationPolicy": "5f5ad62490a03526b84b17d8",
-      "paymentType": "payOnArrival",
-      "facilities": null,
-      "createdTime": null,
-      "updatedTime": [
-        2020,
-        9,
-        16,
-        3,
-        58,
-        0,
-        343000000
-      ]
-    },
-    {
-      "id": "arise|436",
-      "rateId": "436",
-      "chainId": "arise",
-      "name": "AR 2Nt+ NonRef Direct",
-      "customerFacingName": null,
-      "code": "AR2NRD",
-      "rateChargeDescription": "Accommodation",
-      "rateStructure": "OTA",
-      "bookingSourceId": 1,
-      "cancellationPolicy": "5f5ad62490a03526b84b17d8",
-      "paymentType": "payOnArrival",
-      "facilities": null,
-      "createdTime": null,
-      "updatedTime": [
-        2020,
-        9,
-        16,
-        3,
-        58,
-        0,
-        351000000
+        406000000
       ]
     }
   ]
 
   const inputSelected = [
-      { hotel: 152, rate: 'arise|722'}, { hotel: 155, rate: 'arise|519' }
   ]
   const hotelInputSelcted = [
-    { hotel: "f922f8df", rates: ["arise|241"] },
-    { hotel: "a3fe", rates: ["arise|735","arise|241"] }
   ]
 class BasicExample extends React.Component {
 
@@ -625,7 +289,7 @@ class BasicExample extends React.Component {
         super(props);
         this.state = {
             checked: [
-                152
+
             ],
             expanded: [
 
