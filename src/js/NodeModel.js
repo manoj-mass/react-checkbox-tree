@@ -146,14 +146,14 @@ class NodeModel {
     serializeHotelListInputValues(key) {
         const list = [];
         Object.keys(this.flatNodes).forEach((value) => {
-            if (this.flatNodes[value].multiInputValue) {
+            if (this.flatNodes[value].parentInputs) {
                 list.filter((el) => el.hotel === this.flatNodes[value].value).length > 0 &&
                 list.map(p => p.hotel === value
                                       ? { ...p,  rates: key?.rates ? key?.rates.map(i => i.value) : [] }
                                       : p
                                   );
                 (list.filter((el) => el.hotel === this.flatNodes[value].value).length === 0 &&
-                key.hotel !== value) && list.push({ hotel: value, rates: this.flatNodes[value].multiInputValue });
+                key.hotel !== value) && list.push({ hotel: value, rates: this.flatNodes[value].parentInputs });
                 (list.filter((el) => el.hotel === this.flatNodes[value].value).length === 0 &&
                 key.hotel === value) && list.push({ hotel: value, rates: key?.rates ? key?.rates.map(v => v.value) : [] });
             } else {

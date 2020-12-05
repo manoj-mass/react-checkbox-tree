@@ -352,7 +352,20 @@ class BasicExample extends React.Component {
 
     onHotelRateChange(data){
      //  console.log("onHotelRateChange", data);
+     const newList = [];
+
         this.setState({ hotelRates: data })
+        const leafNodes = getLeafNodes(nodes);
+        leafNodes.forEach(leaf => {
+            data.map(item => item.rates && item.rates.map(rate => {
+                if(leaf.includes(rate) && leaf.includes(item.hotel)){
+                    newList.push(leaf)
+                }
+            }) )
+        })
+        console.log(Array.from(new Set(newList)).length > 0)
+
+        this.setState({checked: Array.from(new Set(newList))})
     }
 
     render() {
