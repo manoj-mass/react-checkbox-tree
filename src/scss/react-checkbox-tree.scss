@@ -12,7 +12,7 @@ $rct-clickable-focus: rgba($rct-icon-color, .2) !default;
 }
 
 .basic-multi-select {
-	width: 400px;
+	width: 100%;
 	input[type=text] {
 		display: inline-block !important; // No result reported
 	}

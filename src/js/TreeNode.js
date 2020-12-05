@@ -271,9 +271,16 @@ class TreeNode extends React.Component {
             </components.MultiValue>
           );
 
+          const CustomStyle = {
+            option: (base, state) => ({
+              ...base,
+              backgroundColor: '#ccc',
+            })
+          }
+
         const render = [(
             <>
-            <label key={0} htmlFor={inputId} title={title} style={{ width: '100%' }}>
+            <label key={0} htmlFor={inputId} title={title} style={{ width: treeDepth === 0 ? `40%` : `100%` }}>
                 <NativeCheckbox
                     checked={checked === 1}
                     disabled={disabled}
@@ -289,8 +296,12 @@ class TreeNode extends React.Component {
             </label>
             { treeDepth === 0 && toggelHotelInputs && (<>
                 <Select
+                styles={{
+                    control: styles => ({ ...styles, fontSize: '10px' })
+                  }}
                           className="basic-multi-select"
         closeMenuOnSelect={false}
+        isDisabled={disabled}
         isMulti
         components={{ Option, MultiValue }}
         options={rateList.filter(data => data.value !== 'none')}
