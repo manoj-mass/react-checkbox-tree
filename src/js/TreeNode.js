@@ -73,6 +73,13 @@ class TreeNode extends React.Component {
         this.onChangeCallback = this.onChangeCallback.bind(this);
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.multiInputValue !==
+          prevProps.multiInputValue && this.props.treeDepth === 0) {
+          this.setState({ hotelRates: this.props.multiInputValue?.map(data => ({'value': data, 'label': this.props.rateList?.find(rate => rate.value === data)?.label }) ) })
+        }
+      }
+
     onCheck() {
         const { value, onCheck } = this.props;
 

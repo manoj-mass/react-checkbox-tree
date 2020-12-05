@@ -261,6 +261,7 @@ class CheckboxTree extends React.Component {
             // This is done during rendering as to avoid an additional loop during the
             // deserialization of the `checked` property
             flatNode.checkState = this.determineShallowCheckState(node, noCascade);
+            // flatNod.parentInputs = this.determineParentInputs(node, flatNode.treeDepth);
 
             // Show checkbox only if this is a leaf node or showCheckbox is true
             const showCheckbox = onlyLeafCheckboxes ? flatNode.isLeaf : flatNode.showCheckbox;

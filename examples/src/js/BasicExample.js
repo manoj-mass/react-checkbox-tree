@@ -279,8 +279,11 @@ const nodes = [
   ]
 
   const inputSelected = [
+      { hotel: 152, rate: 'arise|722'}, { hotel: 155, rate: 'arise|519' }
   ]
   const hotelInputSelcted = [
+    { hotel: "f922f8df", rates: ["arise-865"] },
+    { hotel: "672a", rates: ["arise-865", "arise-861"] }
   ]
 class BasicExample extends React.Component {
 
@@ -289,7 +292,7 @@ class BasicExample extends React.Component {
         super(props);
         this.state = {
             checked: [
-
+                152
             ],
             expanded: [
 
@@ -306,7 +309,10 @@ class BasicExample extends React.Component {
 
     onCheck(checked, info) {
         console.log(checked, info);
+        this.setState({ hotelRates : [{ hotel: "f922f8df", rates: ["arise-865"] },
+        { hotel: "672a", rates: ["arise-865", "arise-861", "arise-863"] }] }, console.log('test: ', this.state.hotelRates ))
         this.setState({ checked });
+
     }
 
     onExpand(expanded) {
@@ -314,14 +320,14 @@ class BasicExample extends React.Component {
     }
 
     onRateChange(data) {
-      console.log("parent", data);
+    //  console.log("parent", data);
       this.setState({ rate: data })
+
     }
 
     onHotelRateChange(data){
-        console.log("onHotelRateChange", data);
+     //  console.log("onHotelRateChange", data);
         this.setState({ hotelRates: data })
-
     }
 
     render() {
