@@ -219,6 +219,21 @@ class CheckboxTree extends React.Component {
         return 0;
     }
 
+    determineParentInputs(node, treeDepth){
+        const { hotelInputs } = this.props;
+
+       const flatNode = this.state.model.getNode(node.value);
+        if (treeDepth === 0) {
+         //   console.log("test..", hotelInputs, flatNode )
+        //  console.log(hotelInputs.filter(item => (item.hotel === flatNode.value))[0]?.rates)
+           // return this.props.multiInputValue
+           const hoInput = hotelInputs?.filter(item => (item.hotel === flatNode.value))[0]?.rates || [];
+           //hotelInputs.filter(item => (item.hotel === flatNode.value)).length > 0 && this.setState({test: hoInput })
+
+          return hoInput
+        }
+    }
+
     isEveryChildChecked(node) {
         return node.children.every(
             (child) => this.state.model.getNode(child.value).checkState === 1,
@@ -261,7 +276,7 @@ class CheckboxTree extends React.Component {
             // This is done during rendering as to avoid an additional loop during the
             // deserialization of the `checked` property
             flatNode.checkState = this.determineShallowCheckState(node, noCascade);
-            // flatNod.parentInputs = this.determineParentInputs(node, flatNode.treeDepth);
+            flatNode.parentInputs = this.determineParentInputs(node, flatNode.treeDepth);
 
             // Show checkbox only if this is a leaf node or showCheckbox is true
             const showCheckbox = onlyLeafCheckboxes ? flatNode.isLeaf : flatNode.showCheckbox;
@@ -304,7 +319,7 @@ class CheckboxTree extends React.Component {
                     toggelHotelInputs={toggelHotelInputs}
                     rateList={rateList}
                     inputValue={flatNode.inputValue}
-                    multiInputValue={flatNode.multiInputValue}
+                    multiInputValue={flatNode.parentInputs}
                 >
                     {children}
                 </TreeNode>

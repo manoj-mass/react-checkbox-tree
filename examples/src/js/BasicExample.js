@@ -285,20 +285,39 @@ const nodes = [
     { hotel: "f922f8df", rates: ["arise-865"] },
     { hotel: "672a", rates: ["arise-865", "arise-861"] }
   ]
+  function getLeafNodes(nodes, result = []){
+    for(var i = 0, length = nodes.length; i < length; i++){
+      if(!nodes[i].children || nodes[i].children.length === 0){
+        result.push(nodes[i].value);
+      }else{
+        result = getLeafNodes(nodes[i].children, result);
+      }
+    }
+    return result;
+  }
+
+
+const getRateSet = (data) => {
+    let list = [];
+    const splitList = data.map(item => ({hotel: item.split(':')[0], rate: item.split(':')[2]   }))
+
+    splitList.forEach(data => {
+        list.filter(e => e.hotel === data.hotel).length === 0 && list.push({hotel: data.hotel, rates: Array.from(new Set(splitList.map(item => (item.hotel === data.hotel ) && item.rate).filter(Boolean)) )})
+    })
+   return list;
+}
 class BasicExample extends React.Component {
 
 
     constructor(props) {
         super(props);
         this.state = {
-            checked: [
-                152
-            ],
+            checked: getLeafNodes(nodes),
             expanded: [
 
             ],
             rate: inputSelected,
-            hotelRates: hotelInputSelcted,
+            hotelRates: getRateSet(getLeafNodes(nodes)) || [],
         };
         this.onCheck = this.onCheck.bind(this);
         this.onExpand = this.onExpand.bind(this);
@@ -307,10 +326,16 @@ class BasicExample extends React.Component {
 
     }
 
+    componentDidMount() {
+      //  !hotelRates && this.setState({hotelRates: getRateSet(leafNodes) || []})
+
+    }
+
     onCheck(checked, info) {
         console.log(checked, info);
-        this.setState({ hotelRates : [{ hotel: "f922f8df", rates: ["arise-865"] },
-        { hotel: "672a", rates: ["arise-865", "arise-861", "arise-863"] }] }, console.log('test: ', this.state.hotelRates ))
+        const newRates = getRateSet(checked)
+
+        this.setState({ hotelRates : newRates })
         this.setState({ checked });
 
     }
